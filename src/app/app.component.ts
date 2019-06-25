@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanetService } from './_services/planet.service';
 import { Planet } from './_model/planet';
+import { Page } from './_model/page';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.planetService.getAll().subscribe(
-      (data: Planet[]) => {
-        this.planets = data;
-        console.log(this.planets);
-      }
+      (data: Page[]) => this.planets = data.results
     );
   }
 }
