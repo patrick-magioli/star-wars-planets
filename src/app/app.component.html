@@ -1,3 +1,9 @@
-<div *ngFor="let planet of planets">
-  <h2>{{ planet.name }}</h2>
+<div>
+  <h2>{{ planets.name }}</h2>
+  <h2>{{ planets.population }}</h2>
+  <h2>{{ planets.climate }}</h2>
+  <h2>{{ planets.terrain }}</h2>
+  <h2 *ngFor="let film of planets.films">{{ film }}</h2>
+
+  <button (click)="getRandomPlanet(1, 60)">Next</button>
 </div>

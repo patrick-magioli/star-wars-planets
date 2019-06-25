@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanetService } from './_services/planet.service';
 import { Planet } from './_model/planet';
-import { Page } from './_model/page';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +9,23 @@ import { Page } from './_model/page';
 })
 export class AppComponent implements OnInit {
 
-  public planets: Planet[];
+  public planets: Planet;
+  public planetNumber: number;
 
   constructor(private planetService: PlanetService) { }
 
   ngOnInit() {
-    this.planetService.getAll().subscribe(
-      (data: Page[]) => this.planets = data.results
+    this.getRandomPlanet(1, 60);
+  }
+
+  getRandomPlanet(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    this.planetNumber = Math.floor(Math.random() * (max - min)) + min;
+
+    this.planetService.getAll(this.planetNumber).subscribe(
+      (data: Planet) => this.planets = data
     );
+    console.log(this.planetNumber);
   }
 }
