@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  angular-server:
+    image: 'lrabbt/angular-cli:node-10.7.0-slim'
+    volumes:
+      - ./:/app
+    ports:
+      - 4200
+
