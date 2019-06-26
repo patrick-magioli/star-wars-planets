@@ -1,13 +1,26 @@
-<div>
-  <h2>{{ planets.name }}</h2>
-  <h2>{{ planets.population }}</h2>
-  <h2>{{ planets.climate }}</h2>
-  <h2>{{ planets.terrain }}</h2>
-
-  <h2 style="color: red">Films:</h2>
-  <div *ngFor="let film of films">
-    <h2>{{ film.title }}</h2>
+<div class="container">
+  <div class="header">
+    <h1>Star Wars Random Planets</h1>
   </div>
 
-  <button (click)="getRandomPlanet()">Next</button>
+  <div class="card">
+    <div class="card-header">
+      <h1>{{ planets.name }}</h1>
+    </div>
+    <div class="card-body">
+      <h2>Population: {{ planets.population }}</h2>
+      <h2>Climate: {{ planets.climate }}</h2>
+      <h2>Terrain: {{ planets.terrain }}</h2>
+    
+      <h2 style="color: red">Films:</h2>
+      <div *ngFor="let film of films">
+        <h2>{{ film.title }}</h2>
+      </div>
+    </div> 
+  </div>
+
+  <div class="container-button">
+    <button class="button-main" (click)="getRandomPlanet()">Next</button>
+  </div>
+  
 </div>
