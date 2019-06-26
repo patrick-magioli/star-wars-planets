@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Planet } from '../_model/planet';
-import { Film } from '../_model/film';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +16,4 @@ export class PlanetService {
   getPlanet(planetNumber: number): Observable<Planet> {
     return this.http.get<Planet>(this.url + 'planets/' + planetNumber + '?format=json');
   }
-
-  getMoviesFromPlanet(filmUrl: Array<string>): Observable<Film> {
-    return this.http.get<Film>(filmUrl + '?format=json');
-  }
-
 }
