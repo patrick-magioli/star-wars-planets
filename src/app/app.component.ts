@@ -2,6 +2,7 @@ import { Component, OnInit, ɵConsole } from '@angular/core';
 import { PlanetService } from './_services/planet.service';
 import { Planet } from './_model/planet';
 import { Film } from './_model/film';
+import { FilmService } from './_services/film.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,10 @@ export class AppComponent implements OnInit {
   public planetRandomNumber: number;
   public films: Array<Film> = [];
 
-  constructor(private planetService: PlanetService) { }
+  constructor(
+    private planetService: PlanetService,
+    private filmService: FilmService
+  ) { }
 
   ngOnInit() {
     this.getRandomPlanet();
@@ -44,7 +48,7 @@ export class AppComponent implements OnInit {
     filmUrls.forEach(
       (filmList) => {
         this.films = [];
-        this.planetService.getMoviesFromPlanet(filmList).subscribe(
+        this.filmService.getMoviesFromPlanet(filmList).subscribe(
           (film: Film) => {
             this.films.push(film);
           }
