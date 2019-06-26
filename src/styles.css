@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap');
+
 body {
     background-color: #161616;
     color: #DDDDDD;
+    font-family: 'Ropa Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-weight: normal;
 }
