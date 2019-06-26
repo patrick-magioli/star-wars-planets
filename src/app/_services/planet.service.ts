@@ -18,8 +18,8 @@ export class PlanetService {
     return this.http.get<Planet>(this.url + 'planets/' + planetNumber + '?format=json');
   }
 
-  getFilms(filmUrl: Array<string>): Observable<any> {
-    return this.http.get<any>(filmUrl + '?format=json');
+  getMoviesFromPlanet(filmUrl: Array<string>): Observable<Film> {
+    return this.http.get<Film>(filmUrl + '?format=json');
   }
 
 }

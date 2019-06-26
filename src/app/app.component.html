@@ -3,7 +3,11 @@
   <h2>{{ planets.population }}</h2>
   <h2>{{ planets.climate }}</h2>
   <h2>{{ planets.terrain }}</h2>
-  <h2 *ngFor="let film of planets.films">{{ film }}</h2>
 
-  <button (click)="getRandomPlanet(1, 60)">Next</button>
+  <h2 style="color: red">Films:</h2>
+  <div *ngFor="let film of films">
+    <h2>{{ film.title }}</h2>
+  </div>
+
+  <button (click)="getRandomPlanet()">Next</button>
 </div>
