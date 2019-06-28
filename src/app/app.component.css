@@ -16,6 +16,11 @@
     text-align: center;
 }
 
+.img-logo {
+    width: 70%;
+    margin-bottom: 15px;
+}
+
 .card {
     background-color: #282727;
     -webkit-border-radius: 6px; 
@@ -35,10 +40,16 @@
 
 .card-body {
     background-color: #111111;
-    padding: 30px 20px 20px 20px;
+    padding: 15px 20px 20px 20px;
     -webkit-border-radius: 6px; 
     -moz-border-radius: 6px;
     border-radius: 0 0 6px 6px;
+}
+
+.card-films {
+    width: 50%;
+    border: solid 1px #DDDDDD;
+    text-align: center;
 }
 
 .container-button {
@@ -48,11 +59,12 @@
 
 .button-main {
     background-color: #191919;
-    border: solid 2px #479e5d;
+    border: solid 3px #E5B532;
     width: 100px;
     height: 40px;
     color: #ffffff;
     font-size: 17px;
+    font-weight: bold;
     align-items: center;
     -webkit-border-radius: 3px; 
     -moz-border-radius: 3px;
@@ -61,6 +73,6 @@
 }
 
 .button-main:hover {
-    background-color: #2f6a3e;
+    background-color: #E5B532;
     transition: 0.5s;
 }
