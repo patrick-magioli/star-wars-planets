@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlanetService } from './_services/planet.service';
 import { Planet } from './_model/planet';
 import { Film } from './_model/film';
@@ -11,9 +11,11 @@ import { FilmService } from './_services/film.service';
 })
 export class AppComponent implements OnInit {
 
-  public planets: Planet = new Planet();
   public planetRandomNumber: number;
-  public films: Array<Film> = [];
+  public planets: Planet = new Planet();
+  public planetsQuantity: number;
+  public films: Array<string> = [];
+  public filmsText: string;
 
   constructor(
     private planetService: PlanetService,
@@ -26,31 +28,35 @@ export class AppComponent implements OnInit {
 
   getRandomPlanet() {
     this.planetRandomNumber = this.generateRandomNumber(1, 60);
+
     this.planetService.getPlanet(this.planetRandomNumber).subscribe(
-      (data: Planet) => {
-        this.planets = data;
+      (planetObj: Planet) => {
+        this.planets = planetObj;
+        this.planetsQuantity = this.planets.films.length;
         if (this.planets.films.length !== 0) {
-          this.getFilm(this.planets.films);
+          // Encher variavel text films
+          this.getFilms(this.planets.films);
         } else {
           this.films = [];
         }
-        return this.planets;
       }
     );
   }
+
   generateRandomNumber(min, max): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  getFilm(filmUrls): Array<Film> {
+  getFilms(filmUrls) {
     filmUrls.forEach(
       (filmList) => {
         this.films = [];
         this.filmService.getMoviesFromPlanet(filmList).subscribe(
-          (film: Film) => {
-            this.films.push(film);
+          (filmObj: Film) => {
+            this.films.push(filmObj.title);
+            this.filmsText = this.films.join(', ');
           }
         );
       }

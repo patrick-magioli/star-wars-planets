@@ -1,6 +1,6 @@
 <div class="container">
   <div class="header">
-    <h1>Star Wars Random Planets</h1>
+    <img src="../assets/extra_logo.png" class="img-logo">
   </div>
 
   <div class="card">
@@ -8,19 +8,20 @@
       <h1>{{ planets.name | uppercase}}</h1>
     </div>
     <div class="card-body">
-      <h2><b>Population:</b> {{ planets.population }}</h2>
-      <h2><b>Climate:</b> {{ planets.climate }}</h2>
-      <h2><b>Terrain:</b> {{ planets.terrain }}</h2>
-    
-      <h2 style="color: red">Films:</h2>
-      <div *ngFor="let film of films">
-        <h2>{{ film.title }}</h2>
+      <h2><b>Population:</b> {{ planets.population | titlecase }}</h2>
+      <h2><b>Climate:</b> {{ planets.climate | titlecase}}</h2>
+      <h2><b>Terrain:</b> {{ planets.terrain | titlecase}}</h2>
+      <hr style="border: solid 0.5px #333;">
+      <h2 style="text-align: center; margin-top: 20px;">Featured in {{ planetsQuantity }} films</h2>
+      <div *ngIf="planetsQuantity > 0">
+        <p class="paragraph-default"><b>Films: </b>{{ filmsText }}</p>
       </div>
     </div> 
   </div>
 
   <div class="container-button">
-    <button class="button-main" (click)="getRandomPlanet()">NEXT</button>
+    <button class="button-main" (click)="getRandomPlanet()" (keyup.enter)="getRandomPlanet()">NEXT</button>
+    <h4>or press enter</h4>
   </div>
   
 </div>
