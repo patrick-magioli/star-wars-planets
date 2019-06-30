@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
         this.planets = planetObj;
         this.planetsQuantity = this.planets.films.length;
         if (this.planets.films.length !== 0) {
-          // Encher variavel text films
           this.getFilms(this.planets.films);
         } else {
           this.films = [];
