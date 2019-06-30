@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   public planetsQuantity: number;
   public films: Array<string> = [];
   public filmsText: string;
+  public loading = false;
 
   constructor(
     private planetService: PlanetService,
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   getRandomPlanet() {
+    this.loading = true;
     this.planetRandomNumber = this.generateRandomNumber(1, 60);
 
     this.planetService.getPlanet(this.planetRandomNumber).subscribe(
@@ -39,6 +41,7 @@ export class AppComponent implements OnInit {
         } else {
           this.films = [];
         }
+        this.loading = false;
       }
     );
   }
