@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   public planetsQuantity: number;
   public films: Array<string> = [];
   public filmsText: string;
+  public loading = false;
 
   constructor(
     private planetService: PlanetService,
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   getRandomPlanet() {
+    this.loading = true;
     this.planetRandomNumber = this.generateRandomNumber(1, 60);
 
     this.planetService.getPlanet(this.planetRandomNumber).subscribe(
@@ -34,11 +36,11 @@ export class AppComponent implements OnInit {
         this.planets = planetObj;
         this.planetsQuantity = this.planets.films.length;
         if (this.planets.films.length !== 0) {
-          // Encher variavel text films
           this.getFilms(this.planets.films);
         } else {
           this.films = [];
         }
+        this.loading = false;
       }
     );
   }

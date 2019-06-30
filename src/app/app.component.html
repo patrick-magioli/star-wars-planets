@@ -1,4 +1,5 @@
 <div class="container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
   <div class="header">
     <img src="../assets/extra_logo.png" class="img-logo">
   </div>
@@ -22,6 +23,5 @@
   <div class="container-button">
     <button class="button-main" (click)="getRandomPlanet()" (keyup.enter)="getRandomPlanet()">NEXT</button>
     <h4>or press enter</h4>
-  </div>
-  
+  </div>  
 </div>
